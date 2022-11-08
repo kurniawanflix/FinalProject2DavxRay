@@ -4,7 +4,7 @@ RCTN Store merupakan situs perbelanjaan online.
 
 ## Tech Stack
 
-Dibuat menggunakan library [React JS](https://reactjs.org/) dan [Tailwind](hhttps://tailwindcss.com/docs/guides/create-react-app) serta mengambil API dari [Fakestore API](https://fakestoreapi.com/).
+Dibuat menggunakan library [React JS](https://reactjs.org/) dan [Tailwind](https://tailwindcss.com/docs/guides/create-react-app) serta mengambil API dari [Fakestore API](https://fakestoreapi.com/).
 
 ## Developed by
 
