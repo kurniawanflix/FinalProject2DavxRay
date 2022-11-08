@@ -1,10 +1,10 @@
-# RCTN Shop
+# RCTN Store
 
-RCTN Shop merupakan situs perbelanjaan online.
+RCTN Store merupakan situs perbelanjaan online.
 
 ## Tech Stack
 
-Dibuat menggunakan library [React JS](https://reactjs.org/) dan [Bootstrap](https://react-bootstrap.netlify.app/) serta mengambil API dari [Fakestore API](https://fakestoreapi.com/).
+Dibuat menggunakan library [React JS](https://reactjs.org/) dan [Tailwind](hhttps://tailwindcss.com/docs/guides/create-react-app) serta mengambil API dari [Fakestore API](https://fakestoreapi.com/).
 
 ## Developed by
 
