@@ -1,8 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 import React, { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Routes, Route } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
 import "./assets/css/tailwind.css";
 import Login from "./pages/Login";
 import MensCloth from "./pages/MensCloth";
@@ -62,65 +65,92 @@ function App() {
   }, []);
 
   return (
-    <Routes>
-      <Route
-        path="/login"
-        name="login"
-        protectedRoute={false}
-        element={<Login />}
-      />
-      <Route
-        path="/mens-cloth"
-        name="mens-cloth"
-        useLayout={true}
-        element={<MensCloth />}
-      />
-      <Route
-        path="/jewelry"
-        name="jewelry"
-        useLayout={true}
-        element={<Jewelry />}
-      />
-      <Route
-        path="/electronics"
-        name="electronics"
-        useLayout={true}
-        element={<Electronics />}
-      />
-      <Route
-        path="/womens-cloth"
-        name="womens-cloth"
-        useLayout={true}
-        element={<WomensCloth />}
-      />
-      <Route
-        path="/searched"
-        name="searched"
-        useLayout={true}
-        element={<Searched />}
-      />
-      <Route
-        path="/stock"
-        name="stock"
-        useLayout={true}
-        element={<EditStock />}
-      />
-      <Route path="/report" name="cart" useLayout={true} element={<Report />} />
-      <Route path="/cart" name="report" useLayout={true} element={<Cart />} />
-      <Route
-        path="/:id"
-        name="detail-product"
-        useLayout={true}
-        element={<DetailProduct />}
-      />
-      <Route
-        path="/"
-        name="home"
-        useLayout={true}
-        exact={true}
-        element={<Home />}
-      />
-    </Routes>
+    <ChakraProvider>
+      <div className="w-full min-h-screen flex flex-row">
+        {isOpen && <Sidebar isOpen={isOpen} />}
+        <div className="w-full md:w-10/12 lg:w-10/12 xl:w-10/12">
+          <Header
+            handleToggleSidebar={handleToggleSidebar}
+            isOpen={isOpen}
+            keywords={keywords}
+            handleChange={handleChange}
+            handleKeydown={handleKeydown}
+            handleClickCart={handleClickCart}
+            handleClickBtnLogin={handleClickBtnLogin}
+            handleLogout={handleLogout}
+          />
+          <Routes>
+            <Route
+              path="/login"
+              name="login"
+              protectedRoute={false}
+              element={<Login />}
+            />
+            <Route
+              path="/mens-cloth"
+              name="mens-cloth"
+              useLayout={true}
+              element={<MensCloth />}
+            />
+            <Route
+              path="/jewelry"
+              name="jewelry"
+              useLayout={true}
+              element={<Jewelry />}
+            />
+            <Route
+              path="/electronics"
+              name="electronics"
+              useLayout={true}
+              element={<Electronics />}
+            />
+            <Route
+              path="/womens-cloth"
+              name="womens-cloth"
+              useLayout={true}
+              element={<WomensCloth />}
+            />
+            <Route
+              path="/searched"
+              name="searched"
+              useLayout={true}
+              element={<Searched />}
+            />
+            <Route
+              path="/stock"
+              name="stock"
+              useLayout={true}
+              element={<EditStock />}
+            />
+            <Route
+              path="/report"
+              name="cart"
+              useLayout={true}
+              element={<Report />}
+            />
+            <Route
+              path="/cart"
+              name="report"
+              useLayout={true}
+              element={<Cart />}
+            />
+            <Route
+              path="/:id"
+              name="detail-product"
+              useLayout={true}
+              element={<DetailProduct />}
+            />
+            <Route
+              path="/"
+              name="home"
+              useLayout={true}
+              exact={true}
+              element={<Home />}
+            />
+          </Routes>
+        </div>
+      </div>
+    </ChakraProvider>
   );
 }
 
