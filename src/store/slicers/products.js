@@ -1,24 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  orderItems: [],
-};
+    products: []
+}
 
-export const orderItems = createSlice({
-  name: "orderItems",
-  initialState,
-  reducers: {
-    ADD_ORDER_ITEMS: (state, action) => {
-      const localOrders = JSON.parse(localStorage.getItem("orderItems"));
-      if (localOrders) {
-        state.orderItems = localOrders;
-      }
-      state.orderItems.push(action.payload);
-      localStorage.setItem("orderItems", JSON.stringify(state.orderItems));
-    },
-  },
-});
+export const products = createSlice({
+    name: 'products',
+    initialState,
+    reducers: {
+        ADD_ALL_PRODUCTS: (state, action) => {
+            state.products = action.payload
+            localStorage.setItem('allProducts', JSON.stringify(action.payload))
+        },
+        UPDATE_ITEM_STOCK: (state, action) => {
+            const allProducts = JSON.parse(localStorage.getItem('allProducts'))
+            const item = allProducts.find((item) => item.id === action.payload.id);
+            item.stock = action.payload.stock
+            const index = state.products.findIndex((product) => product.id === item.id);
+            allProducts[index] = item
+            localStorage.setItem('allProducts', JSON.stringify(allProducts))
+            state.products = allProducts;
+        }
+    }
+})
 
-export const { ADD_ORDER_ITEMS } = orderItems.actions;
+export const {
+    ADD_ALL_PRODUCTS,
+    UPDATE_ITEM_STOCK
+} = products.actions
 
-export default orderItems.reducer;
+export default products.reducer
