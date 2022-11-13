@@ -60,16 +60,17 @@ const Jewelry = () => {
     <div className="w-full p-4 md:p-4 space-y-8 md:space-y-16">
       <h1 className="text-xl font-semibold text-gray-600">Jewelry Products</h1>
       <Slider {...settings}>
-        {products.map((product) => {
+        {products.map((product, idx) => {
           return (
-            <div>
+            <div key={idx}>
               <CardProduct
-                id={product.id}
+                key={product.id}
                 category={product.category}
                 image={product.image}
                 title={product.title}
                 price={product.price}
                 rating={product.rating}
+                id={product.id}
                 stock={product.stock}
                 handleClick={handleClick}
               />
