@@ -20,7 +20,7 @@ const EditStock = () => {
     toast({
       title: "Update stock item success",
       status: "success",
-      duration: 6000,
+      duration: 3000,
       position: "top",
       isClosable: true,
     });
