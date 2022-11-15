@@ -5,11 +5,15 @@ yarn install --check-files
 ---------- LOGIN ----------
 
 Pengunjung (username & pass => salah satu dari API users):
+
 username: kevinryan
+
 pass    : kev02937@
 
 Admin
+
 username : admin
+
 pass     : admin123
 
 RCTN Store merupakan situs perbelanjaan online.
